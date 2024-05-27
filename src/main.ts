@@ -8,12 +8,14 @@ const liveRenderTarget = document.getElementById('canvas') as HTMLCanvasElement;
 
 const session = await cameraKit.createSession({ liveRenderTarget });
 
+const { lenses } = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'])
+
+session.applyLens(lenses[0])
+
 const mediaStream = await navigator.mediaDevices.getUserMedia({
   video: {
     facingMode: 'user'},
 });
-
-//session.applyLens(lenses[0])
 
 const source = createMediaStreamSource(mediaStream, {
   transform: Transform2D.MirrorX, 
