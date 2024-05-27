@@ -1,4 +1,4 @@
-import { bootstrapCameraKit } from '@snap/camera-kit';
+import { bootstrapCameraKit, createMediaStreamSource, Transform2D, } from '@snap/camera-kit';
 
 (async function () {
   const cameraKit = await bootstrapCameraKit({ 
@@ -9,11 +9,18 @@ const liveRenderTarget = document.getElementById('canvas') as HTMLCanvasElement;
 const session = await cameraKit.createSession({ liveRenderTarget });
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video: true,
+  video: {
+    facingMode: 'user'},
 });
 
-await session.setSource(mediaStream);
-await session.play();
+//session.applyLens(lenses[0])
+
+const source = createMediaStreamSource(mediaStream, {
+  transform: Transform2D.MirrorX, 
+})
+
+await session.setSource(source);
+session.play();
 
 const lens = await cameraKit.lensRepository.loadLens(
   '50507980875',
