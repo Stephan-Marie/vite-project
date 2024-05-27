@@ -8,9 +8,9 @@ const liveRenderTarget = document.getElementById('canvas') as HTMLCanvasElement;
 
 const session = await cameraKit.createSession({ liveRenderTarget });
 
-const { lenses } = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'])
+const {lenses} = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'])
 
-session.applyLens(lenses[0])
+await session.applyLens(lenses[3])
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
   video: {
@@ -24,10 +24,10 @@ const source = createMediaStreamSource(mediaStream, {
 await session.setSource(source);
 session.play();
 
-const lens = await cameraKit.lensRepository.loadLens(
-  '50507980875',
-  '7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'
-);
+//const lens = await cameraKit.lensRepository.loadLens(
+//  '50507980875',
+//  '7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'
+//);
 
 //await session.applyLens(lens);
 
