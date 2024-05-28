@@ -23,9 +23,9 @@ const source = createMediaStreamSource(mediaStream, {
 
 await session.setSource(source);
 
-await source.setRenderSize(1080, 1920)
-
 session.play();
+
+await source.setRenderSize(1080, 1920)
 
 //const lens = await cameraKit.lensRepository.loadLens(
 //  '50507980875',
