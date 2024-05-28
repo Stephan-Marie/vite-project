@@ -7,12 +7,12 @@ export default defineConfig({
   plugins: [
 		qrcode() // only applies in dev mode
 	],
-  
+
   build: {
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        dist: resolve(__dirname, 'dist/index.html'),
+        docs: resolve(__dirname, 'docs/index.html'),
       },
     },
   },
