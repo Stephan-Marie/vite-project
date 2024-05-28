@@ -23,6 +23,8 @@ const source = createMediaStreamSource(mediaStream, {
 
 await session.setSource(source);
 
+source.setRenderSize(window.innerWidth, window.innerHeight)
+
 session.play();
 
 //const lens = await cameraKit.lensRepository.loadLens(
