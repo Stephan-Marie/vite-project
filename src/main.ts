@@ -13,7 +13,7 @@ const {lenses} = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4
 await session.applyLens(lenses[3])
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video: true
+  video: {aspectRatio: 1080/1920}
 });
 
 const source = createMediaStreamSource(mediaStream, {
