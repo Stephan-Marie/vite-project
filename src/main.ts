@@ -23,7 +23,7 @@ const source = createMediaStreamSource(mediaStream, {
 
 await session.setSource(source);
 
-source.setRenderSize(window.innerWidth, window.innerHeight)
+//source.setRenderSize(window.innerWidth, window.innerHeight)
 
 session.play();
 
