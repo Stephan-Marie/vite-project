@@ -25,7 +25,7 @@ await session.setSource(source);
 
 session.play();
 
-await source.setRenderSize(1080, 1920)
+source.setRenderSize(1080, 1920)
 
 //const lens = await cameraKit.lensRepository.loadLens(
 //  '50507980875',
