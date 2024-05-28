@@ -13,12 +13,12 @@ const {lenses} = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4
 await session.applyLens(lenses[3])
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video: {
-    facingMode: 'user'},
+  video: true
 });
 
 const source = createMediaStreamSource(mediaStream, {
-  transform: Transform2D.MirrorX, 
+  transform: Transform2D.MirrorX,
+  cameraType: 'user'
 })
 
 await session.setSource(source);
