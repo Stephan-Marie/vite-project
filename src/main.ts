@@ -23,7 +23,7 @@ const source = createMediaStreamSource(mediaStream, {
 
 await session.setSource(source);
 
-source.setRenderSize(1080, 1920)
+await source.setRenderSize(1080, 1920)
 
 session.play();
 
