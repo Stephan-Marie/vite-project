@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Camera Kit Web App</title>
-    <script type="module" crossorigin src="docs/assets/packed.js"></script>
-    <link rel="stylesheet" crossorigin href="styles.css">
+    <script type="module" crossorigin src="./docs/packed.js"></script>
+    <link rel="stylesheet" crossorigin href="./styles.css">
   </head>
   <body>
     <p id="demo">
@@ -29,6 +29,7 @@
 
   <script>
     document.getElementById("demo").addEventListener("click", displayLens);
+    document.getElementById("canvas").style.display = "initial";
     
   function displayLens() {
   var x = document.getElementById("canvas")
@@ -41,5 +42,6 @@
   </script>
 
   <canvas id="canvas"></canvas>
+  <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
